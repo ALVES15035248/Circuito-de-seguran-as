@@ -27,7 +27,19 @@
         .manobra-panel { display: none; background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 15px; margin-top: 10px; }
         
         h2 { font-size: 16px; color: #0d47a1; margin-top: 0; border-bottom: 2px solid #0d47a1; padding-bottom: 5px; }
-        .tensao { font-size: 13px; margin: 5px 0 15px 0; color: #555; }
+        
+        /* CAIXA DE RELEVO E CHAMADA DE ATENÇÃO PARA A TENSÃO */
+        .tensao-alerta { 
+            background: #fff8f8; 
+            border: 2px dashed #d32f2f; 
+            padding: 10px; 
+            margin: 10px 0 15px 0; 
+            border-radius: 5px; 
+            font-size: 14px; 
+            box-shadow: inset 0 1px 3px rgba(211,47,47,0.1);
+        }
+        .tensao-alerta strong { color: #333; }
+        .tensao-destaque { color: #d32f2f; font-weight: bold; font-size: 16px; }
         
         table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: middle; }
@@ -47,7 +59,6 @@
     <h1>Bornes dos Circuitos de Segurança</h1>
     <p class="subtitle">Guia Técnico Personalizado — Elevadores em Portugal</p>
     
-    <!-- Filtro Estável Agrupado por Marca -->
     <div class="filter-section">
         <label for="manobraSelect">Selecione o Fabricante e Modelo:</label>
         <select id="manobraSelect" onchange="filtrarManobra()">
@@ -67,7 +78,7 @@
     <!-- 1. OTIS NE300 -->
     <div id="m1" class="manobra-panel">
         <h2>Otis — NE300</h2>
-        <div class="tensao"><strong>Tensão do Circuito:</strong> 110V AC - 120V AC</div>
+        <div class="tensao-alerta"><strong>⚠️ ATENÇÃO — Tensão do Circuito:</strong> <span class="tensao-destaque">110V AC - 120V AC</span></div>
         <table>
             <thead>
                 <tr><th>Circuito / Componente</th><th>Bornes de Medição</th></tr>
@@ -83,10 +94,10 @@
         </table>
     </div>
 
-    <!-- 2. THYSSENKRUPP SÉRIE F MONOPLACA (SUPER LIMPA) -->
+    <!-- 2. THYSSENKRUPP SÉRIE F MONOPLACA -->
     <div id="m2" class="manobra-panel">
         <h2>ThyssenKrupp — Série F Monoplaca</h2>
-        <div class="tensao"><strong>Tensão do Circuito:</strong> 230V AC</div>
+        <div class="tensao-alerta"><strong>⚠️ ATENÇÃO — Tensão do Circuito:</strong> <span class="tensao-destaque">230V AC</span></div>
         <table>
             <thead>
                 <tr><th>Circuito / Componente</th><th>Bornes de Medição</th></tr>
@@ -108,7 +119,7 @@
     <!-- 3. THYSSENKRUPP CMC4+ 20.50 -->
     <div id="m3" class="manobra-panel">
         <h2>ThyssenKrupp — CMC4+ 20.50</h2>
-        <div class="tensao"><strong>Tensão do Circuito:</strong> 230V AC</div>
+        <div class="tensao-alerta"><strong>⚠️ ATENÇÃO — Tensão do Circuito:</strong> <span class="tensao-destaque">230V AC</span></div>
         <table>
             <thead>
                 <tr><th>Circuito / Componente</th><th>Conector e Bornes</th></tr>
@@ -139,18 +150,5 @@
 
 <script>
 function filtrarManobra() {
-    // Esconder todas as tabelas de forma direta por ID
     document.getElementById('m1').style.display = 'none';
     document.getElementById('m2').style.display = 'none';
-    document.getElementById('m3').style.display = 'none';
-    
-    // Mostrar apenas a que foi selecionada
-    var idSelecionado = document.getElementById('manobraSelect').value;
-    if (idSelecionado) {
-        document.getElementById(idSelecionado).style.display = 'block';
-    }
-}
-</script>
-
-</body>
-</html>

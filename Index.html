@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguranças de Ascensores</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f9; color: #333; }
+        h2 { color: #0056b3; }
+        select, input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; }
+        .box { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-top: 15px; display: none; }
+        .passo { background: #e7f3fe; border-left: 6px solid #2196F3; margin: 8px 0; padding: 10px; border-radius: 4px; font-weight: bold; }
+        .dica { background: #fff3cd; border-left: 6px solid #ffc107; margin-top: 15px; padding: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <h2>🛗 Guias de Manobras (Portugal)</h2>
+    <label for="manobraSelect">Selecione ou pesquise a manobra:</label>
+    <select id="manobraSelect" onchange="buscarCircuito()">
+        <option value="">-- Selecione uma manobra --</option>
+        <option value="schindler_bionic">Schindler Bionic</option>
+        <option value="otis_2000">Otis 2000</option>
+        <option value="macpuarsa">Macpuarsa Microbasic</option>
+    </select>
+
+    <div id="resultado" class="box">
+        <h3 id="nomeManobra"></h3>
+        <div id="listaPassos"></div>
+        <div id="dicaManobra" class="dica"></div>
+    </div>
+
+    <script>
+        const db = {
+            schindler_bionic: {
+                nome: "Schindler Bionic",
+                passos: ["1. Fusíveis Gerais (Alimentação)", "2. Stop Fundo do Poço", "3. Stop Tejadilho da Cabine", "4. Contacto Para-quedas", "5. Série de Portas de Cabine", "6. Série de Portas de Patamar"],
+                dica: "Bornes de teste comuns: Meça a linha de segurança nos pontos intermédios para isolar o problema."
+            },
+            otis_2000: {
+                nome: "Otis 2000",
+                passos: ["1. Alimentação da Linha", "2. Stops de Emergência (Gerais)", "3. Contacto do Limitador", "4. Contacto de Cabine (GS)", "5. Contacto de Patamar (DS)"],
+                dica: "Se o LED GS estiver apagado, o trinco da cabine está aberto ou desafinado."
+            },
+            macpuarsa: {
+                nome: "Macpuarsa Microbasic",
+                passos: ["1. Termistores", "2. Série de Stops", "3. Contactos de Pré-fecho", "4. Trincos de Patamar"],
+                dica: "Verifique o estado dos relés auxiliares de segurança no quadro."
+            }
+        };
+
+        function buscarCircuito() {
+            const select = document.getElementById("manobraSelect");
+            const valor = select.value;
+            const resultadoDiv = document.getElementById("resultado");
+            
+            if (valor && db[valor]) {
+                document.getElementById("nomeManobra").innerText = db[valor].nome;
+                
+                let passosHtml = "";
+                db[valor].passos.forEach(passo => {
+                    passosHtml += `<div class="passo">${passo}</div>`;
+                });
+                
+                document.getElementById("listaPassos").innerHTML = passosHtml;
+                document.getElementById("dicaManobra").innerHTML = `<strong>Dica Técnica:</strong> ${db[valor].dica}`;
+                resultadoDiv.style.display = "block";
+            } else {
+                resultadoDiv.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

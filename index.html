@@ -27,7 +27,9 @@
         .manobra-panel { display: none; background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 15px; margin-top: 10px; }
         
         h2 { font-size: 16px; color: #0d47a1; margin-top: 0; border-bottom: 2px solid #0d47a1; padding-bottom: 5px; }
-        .tensao { font-size: 14px; margin: 10px 0 15px 0; color: #333; }
+        
+        /* LINHA DA TENSÃO A VERMELHO E CAPS LOCK */
+        .tensao-destaque { font-size: 14px; margin: 10px 0 15px 0; color: #d32f2f; font-weight: bold; }
         
         table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: middle; }
@@ -67,7 +69,7 @@
     <!-- 1. OTIS NE300 -->
     <div id="m1" class="manobra-panel">
         <h2>Otis — NE300</h2>
-        <div class="tensao"><strong>Tensão do Circuito:</strong> 110V AC - 120V AC</div>
+        <div class="tensao-destaque">TENSÃO DO CIRCUITO: 110V AC - 120V AC</div>
         <table>
             <thead>
                 <tr><th>Circuito / Componente</th><th>Bornes de Medição</th></tr>
@@ -86,7 +88,7 @@
     <!-- 2. THYSSENKRUPP SÉRIE F MONOPLACA -->
     <div id="m2" class="manobra-panel">
         <h2>ThyssenKrupp — Série F Monoplaca</h2>
-        <div class="tensao"><strong>Tensão do Circuito:</strong> 230V AC</div>
+        <div class="tensao-destaque">TENSÃO DO CIRCUITO: 230V AC</div>
         <table>
             <thead>
                 <tr><th>Circuito / Componente</th><th>Bornes de Medição</th></tr>
@@ -108,7 +110,7 @@
     <!-- 3. THYSSENKRUPP CMC4+ 20.50 -->
     <div id="m3" class="manobra-panel">
         <h2>ThyssenKrupp — CMC4+ 20.50</h2>
-        <div class="tensao"><strong>Tensão do Circuito:</strong> 230V AC</div>
+        <div class="tensao-destaque">TENSÃO DO CIRCUITO: 230V AC</div>
         <table>
             <thead>
                 <tr><th>Circuito / Componente</th><th>Conector e Bornes</th></tr>

@@ -36,10 +36,6 @@
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: middle; }
         th { background-color: #f2f2f2; font-weight: bold; }
         .borne { font-family: monospace; background: #333; color: #fff; padding: 2px 6px; border-radius: 3px; font-weight: bold; white-space: nowrap; }
-        
-        /* Bloco de Segmentos de Bypass em Bold */
-        .bloco-bypass-bold { background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px; margin-top: 15px; border-radius: 4px; font-size: 13px; line-height: 1.5; text-align: left; }
-        .bloco-bypass-bold p { margin: 4px 0; font-weight: bold; }
 
         .footer { text-align: center; margin-top: 30px; font-size: 11px; color: #777; }
     </style>
@@ -139,8 +135,25 @@
                 <tr><td>Encravamento das Portas de Piso — Traseira</td><td><span class="borne">X136T / 1</span> a <span class="borne">X136T / 3</span></td></tr>
             </tbody>
         </table>
+    </div>
 
-        <h3>Segmentos de Bypass (Painel de Teste)</h3>
-        <div class="bloco-bypass-bold">
-            <p>NBP — BYPASS EM POSIÇÃO NORMAL (INSPEÇÃO OFF)</p>
-            <p>BP1 — BYPASS DOS CONTACTOS DAS PORTAS DA CABINA</p>
+    <div class="footer">
+        Desenvolvido via GitHub Pages • Guia de Campo Exclusivo
+    </div>
+</div>
+
+<script>
+function filtrarManobra() {
+    document.getElementById('otis-ne300').style.display = 'none';
+    document.getElementById('thyssen-serief').style.display = 'none';
+    document.getElementById('tke-cmc4plus').style.display = 'none';
+    
+    var idSelecionado = document.getElementById('manobraSelect').value;
+    if (idSelecionado) {
+        document.getElementById(idSelecionado).style.display = 'block';
+    }
+}
+</script>
+
+</body>
+</html>

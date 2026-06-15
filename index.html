@@ -8,7 +8,6 @@
         body { font-family: Arial, sans-serif; background: #f4f6f9; color: #333; margin: 0; padding: 15px; }
         .container { max-width: 600px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: auto; text-align: center; }
         
-        /* Símbolo do Elevador */
         .elevator-icon { width: 50px; height: 50px; border: 3px solid #d32f2f; border-radius: 6px; margin: 10px auto; position: relative; background: #fff; }
         .elevator-icon::before { content: ''; position: absolute; top: 12px; left: 12px; width: 10px; height: 20px; background: #d32f2f; }
         .elevator-icon::after { content: ''; position: absolute; top: 12px; right: 12px; width: 10px; height: 20px; background: #d32f2f; }
@@ -17,25 +16,11 @@
         h1 { color: #d32f2f; font-size: 20px; margin-bottom: 5px; margin-top: 10px; }
         p.subtitle { font-size: 13px; color: #666; margin-top: 0; margin-bottom: 20px; }
         
-        /* Secção de Botões de Seleção */
         .menu-marcas { background: #eef2f7; padding: 15px; border-radius: 6px; margin-bottom: 20px; }
-        .grupo-titulo { font-weight: bold; color: #0d47a1; font-size: 14px; margin: 10px 0 5px 0; text-transform: uppercase; }
+        .grupo-titulo { font-weight: bold; color: #0d47a1; font-size: 14px; margin: 15px 0 5px 0; text-transform: uppercase; border-bottom: 1px solid #ccc; padding-bottom: 3px; }
         .btn-manobra { display: block; width: 100%; max-width: 350px; margin: 8px auto; padding: 12px; background: white; color: black; border: 1px solid #ccc; border-radius: 4px; text-decoration: none; font-size: 15px; font-weight: 500; box-sizing: border-box; }
         .btn-manobra:active { background: #d32f2f; color: white; border-color: #d32f2f; }
 
-        /* Lógica CSS Pura para Mostrar/Esconder as Tabelas */
-        .manobra-panel { display: none; background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 15px; margin-top: 20px; text-align: left; }
-        .manobra-panel:target { display: block; animation: surgir 0.2s ease-out; }
-        
-        h2 { font-size: 16px; color: #0d47a1; margin-top: 0; border-bottom: 2px solid #0d47a1; padding-bottom: 5px; }
-        .tensao-destaque { font-size: 14px; margin: 10px 0 15px 0; color: #d32f2f; font-weight: bold; }
-        
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: middle; }
-        th { background-color: #f2f2f2; font-weight: bold; }
-        .borne { font-family: monospace; background: #333; color: #fff; padding: 2px 6px; border-radius: 3px; font-weight: bold; white-space: nowrap; }
-        
-        @keyframes surgir { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         .footer { margin-top: 30px; font-size: 11px; color: #777; }
     </style>
 </head>
@@ -49,93 +34,20 @@
     <h1>Bornes dos Circuitos de Segurança</h1>
     <p class="subtitle">Guia Técnico Personalizado — Elevadores em Portugal</p>
     
-    <!-- Menu de Botões Estáveis (Substitui o Filtro Antigo) -->
     <div class="menu-marcas">
         <div class="grupo-titulo">— OTIS —</div>
-        <a href="#otis-ne300" class="btn-manobra">Otis (NE300)</a>
+        <a href="otis-ne300.html" class="btn-manobra">Otis (NE300)</a>
         
         <div class="grupo-titulo">— THYSSENKRUPP (TKE) —</div>
-        <a href="#tke-cmc4plus" class="btn-manobra">CMC4+ 20.50</a>
-        <a href="#thyssen-serief" class="btn-manobra">Série F Monoplaca</a>
-        <a href="#thyssen-tk10" class="btn-manobra">Thyssen (TK10)</a>
+        <a href="tke-cmc4plus.html" class="btn-manobra">CMC4+ 20.50</a>
+        <a href="thyssen-serief.html" class="btn-manobra">Série F Monoplaca</a>
+        <a href="thyssen-tk10.html" class="btn-manobra">Thyssen (TK10)</a>
     </div>
 
-    <!-- 1. OTIS NE300 -->
-    <div id="otis-ne300" class="manobra-panel">
-        <h2>Otis — NE300</h2>
-        <div class="tensao-destaque">TENSÃO DO CIRCUITO: 110V AC - 120V AC</div>
-        <table>
-            <thead>
-                <tr><th>Circuito / Componente</th><th>Bornes de Medição</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Bloco Térmico (BT)</td><td><span class="borne">95</span> a <span class="borne">96</span></td></tr>
-                <tr><td>Stop Inspeção, Paraquedas e Alongamento de Cabos</td><td><span class="borne">H7</span> a <span class="borne">I5/B1</span></td></tr>
-                <tr><td>Limitador de Velocidade</td><td><span class="borne">I5/B1</span> a <span class="borne">C3/B2</span></td></tr>
-                <tr><td>Fim de Curso (Sup/Inf), Roda Tensora e Stop de Poço</td><td><span class="borne">C3/B2</span> a <span class="borne">B5</span></td></tr>
-                <tr><td>Encosto de Portas de Piso (Pré-fecho)</td><td><span class="borne">B5</span> a <span class="borne">B6</span></td></tr>
-                <tr><td>Encravamento das Portas de Piso (Trincos)</td><td><span class="borne">B6</span> a <span class="borne">B7</span></td></tr>
-            </tbody>
-        </table>
+    <div class="footer">
+        Base de dados modular de manutenção móvel
     </div>
+</div>
 
-    <!-- 2. THYSSENKRUPP SÉRIE F MONOPLACA -->
-    <div id="thyssen-serief" class="manobra-panel">
-        <h2>ThyssenKrupp — Série F Monoplaca</h2>
-        <div class="tensao-destaque">TENSÃO DO CIRCUITO: 230V AC</div>
-        <table>
-            <thead>
-                <tr><th>Circuito / Componente</th><th>Bornes de Medição</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Relé de Fases (RIF)</td><td><span class="borne">1</span> a <span class="borne">3</span></td></tr>
-                <tr><td>Bloco Térmico (BT)</td><td><span class="borne">95-96</span> a <span class="borne">A1</span></td></tr>
-                <tr><td>Stop da Casa de Máquinas</td><td><span class="borne">A3</span> a <span class="borne">A4</span></td></tr>
-                <tr><td>Stop Poço, Roda Tensora e Fins de Curso (Sup/Inf)</td><td><span class="borne">A5</span> a <span class="borne">A6</span></td></tr>
-                <tr><td>Limitador de Velocidade</td><td><span class="borne">A7</span> a <span class="borne">A8</span></td></tr>
-                <tr><td>Alçapão Cabine, Stop Revisão e Paraquedas</td><td><span class="borne">C2</span> a <span class="borne">C3</span></td></tr>
-                <tr><td>Contactos de Encosto de Portas Manuais</td><td><span class="borne">B1</span> a <span class="borne">B2</span></td></tr>
-                <tr><td>Encravamento das Portas de Cabine</td><td><span class="borne">B3</span> a <span class="borne">B5</span></td></tr>
-                <tr><td>Encravamento de Portas de Piso (Trincos)</td><td><span class="borne">B6</span> a <span class="borne">B7</span></td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- 3. THYSSENKRUPP CMC4+ 20.50 -->
-    <div id="tke-cmc4plus" class="manobra-panel">
-        <h2>ThyssenKrupp — CMC4+ 20.50</h2>
-        <div class="tensao-destaque">TENSÃO DO CIRCUITO: 230V AC</div>
-        <table>
-            <thead>
-                <tr><th>Circuito / Componente</th><th>Conector e Bornes</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Stop do Motor</td><td><span class="borne">X152 / 1</span> a <span class="borne">X152 / 3</span></td></tr>
-                <tr><td>Seguranças de Poço (Escada, roda tensora, amortecedores, etc)</td><td><span class="borne">X153 / 1</span> a <span class="borne">X153 / 8</span></td></tr>
-                <tr><td>Bypass em Normal</td><td><span class="borne">X160 / 2</span> a <span class="borne">X160 / 1</span></td></tr>
-                <tr><td>Limitador de Velocidade da Cabine (LV)</td><td><span class="borne">X137 / 3</span> a <span class="borne">X137 / 1</span></td></tr>
-                <tr><td>Limitador de Velocidade do Contra-peso</td><td><span class="borne">X137A / 3</span> a <span class="borne">X137A / 1</span></td></tr>
-                <tr><td>Seguranças de Cabine (Stop, paraquedas, fins de curso, etc)</td><td><span class="borne">X155 / 11</span> a <span class="borne">X155 / 12</span></td></tr>
-                <tr><td>Interruptor do Poço em Normal</td><td><span class="borne">X153 / 11</span> a <span class="borne">X206 / 1</span></td></tr>
-                <tr><td>Vigilância das Portas de Piso</td><td><span class="borne">X206 / 1</span> a <span class="borne">X206 / 2</span></td></tr>
-                <tr><td>Stop de Poço</td><td><span class="borne">X206 / 2</span> a <span class="borne">X153 / 4</span></td></tr>
-                <tr><td>Fecho de Portas Manuais de Piso — Frontal</td><td><span class="borne">X142 / 2</span> a <span class="borne">X142 / 1</span></td></tr>
-                <tr><td>Fecho de Portas Manuais de Piso — Traseira</td><td><span class="borne">X142T / 2</span> a <span class="borne">X142T / 1</span></td></tr>
-                <tr><td>Encravamento das Portas de Cabine</td><td><span class="borne">X155 / 6</span> a <span class="borne">X155 / 9</span></td></tr>
-                <tr><td>Encravamento das Portas de Piso — Frontal</td><td><span class="borne">X136 / 1</span> a <span class="borne">X136 / 3</span></td></tr>
-                <tr><td>Encravamento das Portas de Piso — Traseira</td><td><span class="borne">X136T / 1</span> a <span class="borne">X136T / 3</span></td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- 4. THYSSEN TK10 -->
-    <div id="thyssen-tk10" class="manobra-panel">
-        <h2>Thyssen — TK10</h2>
-        <div class="tensao-destaque">TENSÃO DO CIRCUITO: 120V AC</div>
-        <table>
-            <thead>
-                <tr><th>Circuito / Componente</th><th>Régua e Bornes de Medição</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Stop de Poço e Roda Tensora</td><td>Régua <span class="borne">SV1 / 1</span> a <span class="borne">SV1 / 2</span></td></tr>
-                <tr><td>Stop Auxiliar</td><td>Régua <span class="borne">SC1 / 2</span> a <span class="borne">SC1 / 3</span></td></tr>
+</body>
+</html>

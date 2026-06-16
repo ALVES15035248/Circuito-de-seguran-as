@@ -8,13 +8,20 @@
         body { font-family: Arial, sans-serif; background: #f4f6f9; color: #333; margin: 0; padding: 15px; }
         .container { max-width: 600px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: auto; }
         h1 { color: #0d47a1; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #0d47a1; padding-bottom: 5px; }
+        h3 { font-size: 14px; color: #333; margin-top: 20px; margin-bottom: 5px; border-bottom: 1px solid #eee; padding-bottom: 3px; }
         .tensao-destaque { font-size: 14px; margin: 10px 0 15px 0; color: #d32f2f; font-weight: bold; }
         
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; margin-bottom: 15px; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: middle; }
         th { background-color: #f2f2f2; font-weight: bold; }
         .borne { font-family: monospace; background: #333; color: #fff; padding: 2px 6px; border-radius: 3px; font-weight: bold; white-space: nowrap; }
         
+        /* Tabela de Bypasses Modulada de Forma Leve */
+        .tabela-bp { width: 100%; border-collapse: collapse; background: #fafafa; }
+        .tabela-bp th { background-color: #eaeaea; color: #333; }
+        .tabela-bp td { border: 1px solid #ddd; }
+        .code-bp { font-weight: bold; color: #0d47a1; font-family: monospace; }
+
         .btn-voltar { display: inline-block; margin-top: 20px; padding: 10px 15px; background: #666; color: white; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: bold; }
         .btn-voltar:active { background: #333; }
         .footer { text-align: center; margin-top: 30px; font-size: 11px; color: #777; }
@@ -26,6 +33,7 @@
     <h1>ThyssenKrupp — CMC4+ 20.50</h1>
     <div class="tensao-destaque">TENSÃO DO CIRCUITO: 230V AC</div>
     
+    <h3>Cadeia de Bornes</h3>
     <table>
         <thead>
             <tr><th>Circuito / Componente</th><th>Conector e Bornes</th></tr>
@@ -45,6 +53,19 @@
             <tr><td>Encravamento das Portas de Cabine</td><td><span class="borne">X155 / 6</span> a <span class="borne">X155 / 9</span></td></tr>
             <tr><td>Encravamento das Portas de Piso — Frontal</td><td><span class="borne">X136 / 1</span> a <span class="borne">X136 / 3</span></td></tr>
             <tr><td>Encravamento das Portas de Piso — Traseira</td><td><span class="borne">X136T / 1</span> a <span class="borne">X136T / 3</span></td></tr>
+        </tbody>
+    </table>
+
+    <h3>Fichas de Bypass (Painel de Teste)</h3>
+    <table class="tabela-bp">
+        <thead>
+            <tr><th>Ficha</th><th>Função / Descrição do Componente</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="code-bp">NBP</td><td>BYPASS POSIÇÃO NORMAL</td></tr>
+            <tr><td class="code-bp">BP1</td><td>BYPASS CONTACTOS PORTAS CABINA</td></tr>
+            <tr><td class="code-bp">BP2</td><td>BYPASS CONTACTOS DE PRESENÇA</td></tr>
+            <tr><td class="code-bp">BP3</td><td>BYPASS CONTACTOS PORTAS PISO</td></tr>
         </tbody>
     </table>
 

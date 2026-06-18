@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThyssenKrupp CMC — Circuitos de Segurança</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #f4f6f9; 
+            color: #333; 
+            margin: 0; 
+            padding: 15px; 
+            /* MARCA DE ÁGUA DEFENSIVA REGISTADA */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='160' height='100'%3E%3Ctext x='20' y='50' fill='rgba(0,0,0,0.03)' font-size='11' font-family='Arial' font-weight='bold' transform='rotate(-25 80 50)'%3ENelson 15035248%3C/text%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+        .container { max-width: 600px; background: rgba(255, 255, 255, 0.96); padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: auto; }
+        h1 { color: #0d47a1; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #0d47a1; padding-bottom: 5px; }
+        .tensao-destaque { font-size: 14px; margin: 10px 0 15px 0; color: #d32f2f; font-weight: bold; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: middle; }
+        th { background-color: #f2f2f2; font-weight: bold; }
+        .borne { font-family: monospace; background: #333; color: #fff; padding: 2px 6px; border-radius: 3px; font-weight: bold; white-space: nowrap; }
+        
+        .btn-voltar { display: inline-block; margin-top: 20px; padding: 10px 15px; background: #666; color: white; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: bold; }
+        .btn-voltar:active { background: #333; }
+        .footer { text-align: center; margin-top: 30px; font-size: 11px; color: #777; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ThyssenKrupp — CMC</h1>
+    <div class="tensao-destaque">TENSÃO DO CIRCUITO: 230V AC</div>
+    
+    <table>
+        <thead>
+            <tr><th>Circuito / Componente</th><th>Bornes de Medição</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Placa VTH (Sensor Térmico do Motor)</td><td><span class="borne">A1</span> a <span class="borne">A2</span></td></tr>
+            <tr><td>Stops das Rodas da Casa de Máquinas</td><td><span class="borne">A3</span> a <span class="borne">A4</span></td></tr>
+            <tr><td>Stop de Poço e Roda Tensora (Cabine/Contrapeso)</td><td><span class="borne">A5</span> a <span class="borne">A6</span></td></tr>
+            <tr><td>Amortecedores de Poço e Fins de Curso (Superior/Inferior)</td><td><span class="borne">A6</span> a <span class="borne">A7</span></td></tr>
+            <tr><td>Limitador de Velocidade (Cabine/Contrapeso)</td><td><span class="borne">A8</span> a <span class="borne">A9</span></td></tr>
+            <tr><td>Páraquedas, Alongamento de Cabos e Stop da Botoneira de Revisão</td><td><span class="borne">B1</span> a <span class="borne">B4</span></td></tr>
+            <tr><td>Fecho de Portas de Piso (Contactos de Encosto)</td><td><span class="borne">C1</span> a <span class="borne">C2</span></td></tr>
+            <tr><td>Encravamento das Portas de Cabine</td><td><span class="borne">C2</span> a <span class="borne">C6</span></td></tr>
+            <tr><td>Encravamento das Portas de Piso (Trincos Exteriores)</td><td><span class="borne">C6</span> a <span class="borne">C7</span></td></tr>
+        </tbody>
+    </table>
+
+    <a href="index.html" class="btn-voltar">⬅️ Voltar ao Menu</a>
+
+    <div class="footer">
+        © Nelson 15035248 • Guia de Campo Exclusivo
+    </div>
+</div>
+
+</body>
+</html>

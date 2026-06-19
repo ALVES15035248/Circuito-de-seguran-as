@@ -54,12 +54,15 @@
     <h1>Bornes dos Circuitos de Segurança</h1>
     <p class="subtitle">Guia Técnico Personalizado — Elevadores em Portugal</p>
     
-    <!-- Filtro Único Com Opções Sincronizadas -->
     <div class="filter-section">
         <label for="manobraSelect">Selecione o Fabricante e Modelo:</label>
         <select id="manobraSelect" onchange="irParaManobra()">
             <option value="">-- Escolha uma Manobra --</option>
             
+            <optgroup label="Efalift">
+                <option value="efalift-efav.html">EFA-V</option>
+            </optgroup>
+
             <optgroup label="Otis">
                 <option value="otis-mcs220.html">MCS220</option>
                 <option value="otis-ne300.html">NE300</option>

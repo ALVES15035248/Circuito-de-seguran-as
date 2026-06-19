@@ -26,10 +26,10 @@
         th { background-color: #f2f2f2; font-weight: bold; }
         .borne { font-family: monospace; background: #333; color: #fff; padding: 2px 6px; border-radius: 3px; font-weight: bold; white-space: nowrap; }
         
-        /* Caixa de Imagem */
+        /* CAIXA DE IMAGEM CORRIGIDA SEM ROTAÇÃO */
         .caixa-imagem { text-align: center; margin: 15px 0 25px 0; background: #fafafa; padding: 10px; border-radius: 6px; border: 1px solid #ddd; }
-        .caixa-imagem img { width: 100%; max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: block; margin: 0 auto; transform: rotate(90deg); }
-        .legenda-imagem { font-size: 11px; color: #666; margin-top: 12px; font-style: italic; }
+        .caixa-imagem img { width: 100%; max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
+        .legenda-imagem { font-size: 11px; color: #666; margin-top: 6px; font-style: italic; }
 
         /* ESTILO PARA A TABELA DIDÁTICA DE LEDS EFALIFT */
         .tabela-leds { width: 100%; border-collapse: collapse; background: #fdfdfd; margin-top: 10px; }
@@ -48,13 +48,13 @@
 <div class="container">
     <h1>Efalift — EFA-V</h1>
     
-    <!-- Caixa da Foto Física -->
+    <!-- Caixa da Foto Física sem Rotação -->
     <div class="caixa-imagem">
         <img src="efalift-placa.jpg" alt="Placa Efalift EFA-V">
-        <div class="legenda-imagem">Painel Físico: Referência de diagnóstico Efalift (Vista Horizontal)</div>
+        <div class="legenda-imagem">Painel Físico: Referência de diagnóstico Efalift</div>
     </div>
 
-    <!-- Tabela Didática de LEDs baseada na imagem enviada -->
+    <!-- Tabela Didática de LEDs -->
     <h3>Sinalização de LEDs Diagnóstico</h3>
     <table class="tabela-leds">
         <thead>

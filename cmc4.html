@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manobra ThyssenKrupp CMC4+ - Bornes de Elevadores</title>
+    <style>
+        :root {
+            --primary-color: #0054a6; /* Azul Thyssen */
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
+            --accent-color: #27ae60; /* Verde para circuitos fechados/OK */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .info-box {
+            background-color: #eef5fc;
+            border-left: 5px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Estilo da Linha de Fluxo / Timeline */
+        .flow-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .safety-flow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+            background: #fafafa;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+        }
+
+        .flow-step {
+            background: white;
+            border: 2px solid var(--border-color);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .flow-step span {
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            color: #999;
+            font-weight: bold;
+        }
+
+        /* Estilo da Tabela de Bornes */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .badge-voltage {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: 1px solid #ffeeba;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .btn-back:hover {
+            background-color: #003b75;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Manobra ThyssenKrupp CMC4+</h1>
+    
+    <div class="info-box">
+        <strong>Especificações do Circuito de Segurança:</strong><br>
+        Tensão de Manobra: <strong>230Vac</strong> | Esquema de Referência: Nº 2685.03 (Esquema 3)
+    </div>
+
+    <!-- Linha de Fluxo Visual -->
+    <div class="flow-title">Fluxo Sequencial da Corrente (Caminho das Seguranças)</div>
+    <div class="safety-flow">
+        <div class="flow-step"><span>X13.1</span> Início</div>
+        <div class="flow-arrow">➔</div>
+        <div class="flow-step"><span>X13.2/3</span> Fossa</div>
+        <div class="flow-arrow">➔</div>
+        <div class="flow-step"><span>X13.4/5</span> Limitador/Cunhas</div>
+        <div class="flow-arrow">➔</div>
+        <div class="flow-step"><span>X13.6</span> Teto Cabina</div>
+        <div class="flow-arrow">➔</div>
+        <div class="flow-step"><span>X13.7/8/9</span> Portas Patamar</div>
+        <div class="flow-arrow">➔</div>
+        <div class="flow-step"><span>X13.10</span> Porta Cabina</div>
+        <div class="flow-arrow">➔</div>
+        <div class="flow-step"><span>X13.11</span> Normal</div>
+    </div>
+
+    <!-- Tabela Detalhada -->
+    <div class="flow-title">Análise de Bornes e Contactos (Régua X13)</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Borne X13</th>
+                <th>Componente / Função do Circuito</th>
+                <th>Estado Esperado (Normal)</th>
+                <th>Tensão de Teste</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>X13.1</strong></td>
+                <td>Alimentação Geral / Entrada da Cadeia de Segurança</td>
+                <td>Fase de Manobra Ativa</td>
+                <td><span class="badge-voltage">230 Vac</span></td>
+            </tr>
+            <tr>
+                <td><strong>X13.2</strong></td>
+                <td>Contacto de Stop da Fossa / Interruptores Locais</td>
+                <td>Fechado</td>
+                <td><span class="badge-voltage">230 Vac</span></td>
+            </tr>
+            <tr>
+                <td><strong>X13.3</strong></td>
+                <td>Retorno do Stop da Fossa</td>
+                <td>Fechado</td>
+                <td><span class="badge-voltage">230 Vac</span></td>
+            </tr>
+            <tr>
+                <td><strong>X13.4</strong></td>
+                <td>Amortecedores / Contacto do Esticador do Cabo</td>
+                <td>Fechado</td>
+                <td><span class="badge-voltage">230 Vac</span></td>
+            </tr>
+            <tr>
+                <td><strong>X13.5</strong></td>
+                <td>Limitador de Velocidade / Cunhas de Segurança</td>
+                <td>Fechado</td>
+                <td><span class="badge-voltage">230 Vac</span></td>
+            </tr>
+            <tr>
+                <td><strong>X13.6</strong></td>
+                <td>Contacto de Paragem do Teto da Cabina (Stop Revisão)</td>
+                <td>Fechado (Modo Normal)</td>
+                <td><span class="badge-voltage">230 Vac</span></td>
+            </tr>
+            <tr>
+                <td><strong>X13.7</strong></td>
+                <td>Saída das Seguranças Gerais / Entrada Trincos Patamar</td>
+                <td>Seguranças Série OK</td>
+                <td><span class="badge-voltage">230 Vac</span></td>
+            </tr>
+            <tr>
+                <td><strong>X13.8</strong></td>
+                <td>Contactos de Encravamento (Trincos das Portas de Patamar)</td>
+                <td>Portas Fechadas e Trancadas</td>
+                <td><span class="badge-voltage">230 Vac</span></td>
+            </tr>
+            <tr>
+                <td><strong>X13.9</strong></td>
+                <td>Retorno do Encravamento das Portas de Patamar</td>
+                <td>Circuito de Patamar OK</td>
+                <td><span class="badge-voltage">230 Vac</span></td>
+            </tr>
+            <tr>
+                <td><strong>X13.10</strong></td>
+                <td>Contacto do Operador de Porta da Cabina (Contacto de Porta)</td>
+                <td>Porta da Cabina Fechada</td>
+                <td><span class="badge-voltage">230 Vac</span></td>
+            </tr>
+            <tr>
+                <td><strong>X13.11</strong></td>
+                <td>Fim do Circuito de Segurança / Entrada do Bloco Normal</td>
+                <td>Pronto para Marcha</td>
+                <td><span class="badge-voltage">230 Vac</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Botão de Voltar para o Index principal do GitHub -->
+    <a href="index.html" class="btn-back">⬅ Voltar ao Menu Principal</a>
+</div>
+
+</body>
+</html>

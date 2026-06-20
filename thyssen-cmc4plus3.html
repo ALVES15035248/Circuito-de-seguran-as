@@ -19,7 +19,6 @@
         h1 { color: #0d47a1; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #0d47a1; padding-bottom: 5px; }
         h3 { font-size: 14px; color: #333; margin-top: 20px; margin-bottom: 5px; border-bottom: 1px solid #eee; padding-bottom: 3px; }
         
-        /* ESTILO DA LINHA DE TENSÃO REPOSICIONADA */
         .tensao-destaque { font-size: 14px; margin: 15px 0 5px 0; color: #d32f2f; font-weight: bold; text-align: left; }
         
         table { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 13px; margin-bottom: 15px; }
@@ -27,7 +26,14 @@
         th { background-color: #f2f2f2; font-weight: bold; }
         .borne { font-family: monospace; background: #333; color: #fff; padding: 2px 6px; border-radius: 3px; font-weight: bold; white-space: nowrap; }
         
-        /* CAIXA DE IMAGEM DA CMC4+ */
+        /* ESTILO EXCLUSIVO E INTUITIVO PARA A TABELA DE LEDS CMC4+ */
+        .tabela-leds-cmc { width: 100%; border-collapse: collapse; background: #fafbfc; margin-top: 10px; }
+        .tabela-leds-cmc th { background-color: #0d47a1; color: white; padding: 10px; }
+        .status-led { display: inline-flex; align-items: center; font-weight: bold; font-family: monospace; font-size: 13px; background: #eef2f7; padding: 4px 8px; border-radius: 4px; border: 1px solid #dcdfe6; }
+        .bulb-on { font-size: 14px; margin-right: 6px; filter: drop-shadow(0 0 3px #ffc107); }
+        .txt-alerta { color: #c0392b; font-weight: bold; }
+
+        /* Caixa de Imagem */
         .caixa-imagem { text-align: center; margin: 15px 0 25px 0; background: #fafafa; padding: 10px; border-radius: 6px; border: 1px solid #ddd; }
         .caixa-imagem img { width: 100%; max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
         .legenda-imagem { font-size: 11px; color: #666; margin-top: 6px; font-style: italic; }
@@ -42,12 +48,40 @@
 <div class="container">
     <h1>ThyssenKrupp — CMC4+</h1>
     
-    <!-- CONTEÚDO ATUALIZADO COM A LEGENDA CORRIGIDA -->
     <h3>Placa da manobra CMC4+</h3>
     <div class="caixa-imagem">
         <img src="cmc4-esquema3.jpg" alt="Placa da manobra CMC4+">
         <div class="legenda-imagem">Placa da manobra CMC4+</div>
     </div>
+
+    <!-- TABELA DE SINALIZAÇÃO DE LEDS COM O LED FA INCLUÍDO -->
+    <h3>Sinalização de LEDs Diagnóstico (Painel de Testes)</h3>
+    <table class="tabela-leds-cmc">
+        <thead>
+            <tr>
+                <th style="width: 32%;">Estado do LED</th>
+                <th>Despiste Rápido de Avarias / Componente Aberto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="status-led"><span class="bulb-on">🔴</span> FA (FALHA)</span> <br><span class="txt-alerta">Aceso</span></td>
+                <td><strong>Falha de Alimentação Geral ou Fases</strong>. Anomalia na tensão de comando da série ou atuação do Relé de Fases (Inversão / falta de fase na entrada da força).</td>
+            </tr>
+            <tr>
+                <td><span class="status-led"><span class="bulb-on">🟢</span> L4 (SEG)</span> <br><span class="txt-alerta">Desligado</span></td>
+                <td><strong>Seguranças Gerais Abertas</strong>. Falha entre X152/1 e X155/12. Verificar Stop do Motor, Stops de Poço, Limitadores de velocidade (Cabine/Contrapeso), Paraquedas ou Fins de curso.</td>
+            </tr>
+            <tr>
+                <td><span class="status-led"><span class="bulb-on">🟢</span> L5 (PRES)</span> <br><span class="txt-alerta">Desligado</span></td>
+                <td><strong>Série de Portas de Piso Aberta</strong>. Falha nos contactos de encosto (portas manuais). Verificar o circuito entre os conectores X142 / X142T e a vigilância de poço X206.</td>
+            </tr>
+            <tr>
+                <td><span class="status-led"><span class="bulb-on">🟢</span> L6 (ENCL)</span> <br><span class="txt-alerta">Desligado</span></td>
+                <td><strong>Falha de Encravamento ou Porta de Cabina</strong>. Falha nos trincos exteriores ou operador. Verificar série de cabine (X155/6 - X155/9) ou trincos de piso (X136 / X136T).</td>
+            </tr>
+        </tbody>
+    </table>
 
     <!-- TENSÃO COLOCADA NO LOCAL DE PRIORIDADE DE DIAGNÓSTICO -->
     <div class="tensao-destaque">TENSÃO DO CIRCUITO: 230V AC</div>

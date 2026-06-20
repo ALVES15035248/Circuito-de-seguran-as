@@ -26,17 +26,18 @@
         th { background-color: #f2f2f2; font-weight: bold; }
         .borne { font-family: monospace; background: #333; color: #fff; padding: 2px 6px; border-radius: 3px; font-weight: bold; white-space: nowrap; }
         
-        /* GRELHA COMPACTA PARA DIAGNÓSTICO DE LEDS */
-        .tabela-leds-cmc { width: 100%; border-collapse: collapse; background: #fafbfc; margin-top: 10px; }
-        .tabela-leds-cmc th { background-color: #0d47a1; color: white; padding: 10px; }
-        .status-led { display: inline-flex; align-items: center; font-weight: bold; font-family: monospace; font-size: 13px; background: #eef2f7; padding: 4px 8px; border-radius: 4px; border: 1px solid #dcdfe6; }
-        .bulb-on { font-size: 14px; margin-right: 6px; filter: drop-shadow(0 0 3px #ffc107); }
-        .txt-alerta { color: #c0392b; font-weight: bold; }
+        /* Estilo para as Tabelas de Diagnóstico */
+        .tabela-diag { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; background: #fffdf3; }
+        .tabela-diag th { background-color: #fff3cd; color: #856404; }
+        .tabela-diag td { border: 1px solid #ffeeba; }
+        .erro-code { font-weight: bold; color: #d32f2f; font-family: monospace; font-size: 14px; }
+        
+        .txt-custom { font-weight: bold; text-decoration: underline; }
 
         /* Caixa de Imagem */
-        .caixa-imagem { text-align: center; margin: 15px 0 25px 0; background: #fafafa; padding: 10px; border-radius: 6px; border: 1px solid #ddd; }
-        .caixa-imagem img { width: 100%; max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
-        .legenda-imagem { font-size: 11px; color: #666; margin-top: 6px; font-style: italic; }
+        .caixa-imagem { text-align: center; margin: 15px 0 25px 0; background: #fafafa; padding: 10px; border-radius: 6px; border: 1px solid #ddd; overflow: hidden; }
+        .caixa-imagem img { width: 100%; max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: block; margin: 0 auto; transform: rotate(90deg); }
+        .legenda-imagem { font-size: 11px; color: #666; margin-top: 12px; font-style: italic; }
 
         .btn-voltar { display: inline-block; margin-top: 20px; padding: 10px 15px; background: #666; color: white; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: bold; }
         .btn-voltar:active { background: #333; }
@@ -48,33 +49,74 @@
 <div class="container">
     <h1>ThyssenKrupp — Série F Biplaca</h1>
     
-    <h3>Placa da manobra Série F Biplaca</h3>
+    <!-- Caixa para o Esquema da Manobra -->
     <div class="caixa-imagem">
         <img src="serief-biplaca.jpg" alt="Esquema Série F Biplaca" onerror="this.style.display='none'; document.getElementById('lbl-bp').innerText='Fotografia do esquema técnico pendente...';">
-        <div id="lbl-bp" class="legenda-imagem">Referência Técnica: Manobra Série F / D.F.U.1V</div>
+        <div id="lbl-bp" class="legenda-imagem">Referência Técnica: Manobra Série F / D.F.U.1V (Vista Horizontal)</div>
     </div>
 
-    <!-- TABELA DE SINALIZAÇÃO DE LEDS INTUITIVA -->
-    <h3>Sinalização de LEDs Diagnóstico (Placa de Relés)</h3>
-    <table class="tabela-leds-cmc">
+    <!-- SINALIZAÇÃO DE LEDS IDENTICA À MONOPLACA -->
+    <h3>Sinalização dos LEDs (Placa Principal)</h3>
+    <table class="tabela-diag">
         <thead>
             <tr>
-                <th style="width: 32%;">Estado do LED</th>
-                <th>Despiste Rápido de Avarias / Componente Aberto</th>
+                <th style="width: 30%;">LED</th>
+                <th>Causa Provável da Avaria / Despiste</th>
             </tr>
         </thead>
         <tbody>
+            <tr><td class="erro-code">29 (L4) Desligado</td><td>Cadeia de segurança geral aberta (Stops, BT, RIF, VTH ou Limitador). Verificar bornes de A1 a A8.</td></tr>
+            <tr><td class="erro-code">40 (L5) Desligado</td><td>Contacto de encosto de portas manuais ou trinco de piso aberto. Verificar bornes B1 a B2.</td></tr>
+            <tr><td class="erro-code">41 (L6) Desligado</td><td>Falta de encravamento mecânico (trincos exteriores) ou porta de cabina aberta. Verificar bornes B2 a B7.</td></tr>
+        </tbody>
+    </table>
+
+    <!-- CÓDIGOS DE AVARIA IDENTICOS À MONOPLACA (NEGRITO E SUBUNHADO) -->
+    <h3>Códigos de Avaria no Display</h3>
+    <table class="tabela-diag">
+        <thead>
+            <tr><th>Código</th><th>Significado / Descrição da Avaria</th></tr>
+        </thead>
+        <tbody>
             <tr>
-                <td><span class="status-led"><span class="bulb-on">🟢</span> DL1 (ENCL)</span> <br><span class="txt-alerta">Desligado</span></td>
-                <td><strong>Falha de Encravamento ou Porta de Cabina</strong>. Falha nos trincos exteriores ou operador. Verificar série de cabine (B3 - B5) ou trincos de piso (B6 - B7).</td>
+                <td class="erro-code">*0</td>
+                <td><span class="txt-custom">Sensores de cabine</span>:<br>Célula fotoelétrica, bordo de segurança, botão de abrir portas e sensor de sobrecarga.</td>
             </tr>
             <tr>
-                <td><span class="status-led"><span class="bulb-on">🟢</span> DL2 (PRES)</span> <br><span class="txt-alerta">Desligado</span></td>
-                <td><strong>Série de Portas de Piso Aberta</strong>. Falha nos contactos de encosto (portas manuais). Verificar o circuito entre os bornes B1 e B2.</td>
+                <td class="erro-code">*1</td>
+                <td><span class="txt-custom">Falha de contactores</span>:<br>Contactor colado no arranque, se demora mais de 400ms a cair, falha na alimentação dos contactores, falha dos relés B69/B69A ou T69/T69A.</td>
             </tr>
             <tr>
-                <td><span class="status-led"><span class="bulb-on">🟢</span> DL3 (SEG)</span> <br><span class="txt-alerta">Desligado</span></td>
-                <td><strong>Seguranças Gerais Abertas</strong>. Falha na cadeia inicial entre os bornes 1 e A8. Verificar Relé de Fases (RIF), Bloco Térmico (BT), Stops de poço/casa de máquinas ou Limitador de Velocidade.</td>
+                <td class="erro-code">*2</td>
+                <td><span class="txt-custom">Inversão de fases e/ou Detecção das 2 mudanças de velocidade</span></td>
+            </tr>
+            <tr>
+                <td class="erro-code">*3</td>
+                <td><span class="txt-custom">Em revisão</span>:<br>Manobra em revisão no topo da cabine e/ou na botoneira de emergência da casa de máquinas (LED L1 apagado).</td>
+            </tr>
+            <tr>
+                <td class="erro-code">*4</td>
+                <td><span class="txt-custom">Abertura da série de segurnças em movimento</span>:<br>Falha da placa de manobra ou abertura da série de portas com o elevador em andamento.</td>
+            </tr>
+            <tr>
+                <td class="erro-code">*5</td>
+                <td><span class="txt-custom">Falha na abertura de portas</span>:<br>Impossibilidade de abertura do encravamento de portas, falha do operador de portas e respetivas ligações, portas com prisão ou falha do relé de portas na placa de relés.</td>
+            </tr>
+            <tr>
+                <td class="erro-code">*6</td>
+                <td><span class="txt-custom">Erro de contagem de ecrans</span>:<br>Cordas de suspensão das pantalhas laças, deslizamento do ascensor ou falta de pantalhas (ecrãs).</td>
+            </tr>
+            <tr>
+                <td class="erro-code">*7</td>
+                <td><span class="txt-custom">Falha no encravamento de portas</span>:<br>Falha de funcionamento da rampa móvel, falha da placa de relés, série de portas permanentemente abertas ou portas presas.</td>
+            </tr>
+            <tr>
+                <td class="erro-code">*8</td>
+                <td><span class="txt-custom">Artº 75, Placa de cabine desligada</span>:<br>Falha do fotorruptor de pisos, falha de travão, falha de contactores ou falha de ligações da placa de cabine.</td>
+            </tr>
+            <tr>
+                <td class="erro-code">*9</td>
+                <td><span class="txt-custom">Abertura da série de seguranças</span></td>
             </tr>
         </tbody>
     </table>
@@ -88,14 +130,15 @@
         </thead>
         <tbody>
             <tr><td>Relé de Fases (RIF)</td><td><span class="borne">1</span> a <span class="borne">3</span></td></tr>
-            <tr><td>Bloco Térmico (BT)</td><td><span class="borne">3</span> a <span class="borne">A1</span></td></tr>
+            <tr><td>Bloco Térmico do Motor (BT) e Contactos Auxiliares</td><td><span class="borne">3</span> a <span class="borne">A1</span></td></tr>
+            <tr><td>Sensor Temperatura do Motor (VTH)</td><td><span class="borne">A1</span> a <span class="borne">A2</span></td></tr>
             <tr><td>Stop da Casa de Máquinas</td><td><span class="borne">A3</span> a <span class="borne">A4</span></td></tr>
-            <tr><td>Stop Poço, Roda Tensora e Fins de Curso (Sup/Inf)</td><td><span class="borne">A5</span> a <span class="borne">A6</span></td></tr>
-            <tr><td>Limitador de Velocidade</td><td><span class="borne">A7</span> a <span class="borne">A8</span></td></tr>
-            <tr><td>Alçapão Cabine, Stop Revisão e Paraquedas</td><td><span class="borne">C2</span> a <span class="borne">C3</span></td></tr>
-            <tr><td>Contactos de Encosto de Portas Manuais (Presença)</td><td><span class="borne">B1</span> a <span class="borne">B2</span></td></tr>
-            <tr><td>Encravamento das Portas de Cabine (Operador)</td><td><span class="borne">B3</span> a <span class="borne">B5</span></td></tr>
-            <tr><td>Encravamento de Portas de Piso (Trincos Exteriores)</td><td><span class="borne">B6</span> a <span class="borne">B7</span></td></tr>
+            <tr><td>Stop do Poço, Roda Tensora e Fins de Curso Sup./Inf.</td><td><span class="borne">A5</span> a <span class="borne">A6</span></td></tr>
+            <tr><td>Contacto do Limitador de Velocidade (LV)</td><td><span class="borne">A7</span> a <span class="borne">A8</span></td></tr>
+            <tr><td>Stop de Revisão, Stop de Cabine e Contacto Along. de Cabos</td><td><span class="borne">C1</span> a <span class="borne">C2</span></td></tr>
+            <tr><td>Fecho de Portas de Piso</td><td><span class="borne">B1</span> a <span class="borne">B2</span></td></tr>
+            <tr><td>Encravamento das Portas de Cabine</td><td><span class="borne">B2</span> a <span class="borne">B5</span></td></tr>
+            <tr><td>Encravamento das Portas de Piso (Trincos Exteriores)</td><td><span class="borne">B6</span> a <span class="borne">B7</span></td></tr>
         </tbody>
     </table>
 

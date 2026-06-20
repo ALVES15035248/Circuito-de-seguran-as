@@ -5,47 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thyssen TK10 — Circuitos de Segurança</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f6f9; color: #333; margin: 0; padding: 15px; }
-        .container { max-width: 600px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: auto; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #f4f6f9; 
+            color: #333; 
+            margin: 0; 
+            padding: 15px; 
+            /* MARCA DE ÁGUA DEFENSIVA REGISTADA */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='160' height='100'%3E%3Ctext x='20' y='50' fill='rgba(0,0,0,0.03)' font-size='11' font-family='Arial' font-weight='bold' transform='rotate(-25 80 50)'%3ENelson 15035248%3C/text%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+        .container { max-width: 600px; background: rgba(255, 255, 255, 0.96); padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: auto; }
         h1 { color: #0d47a1; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #0d47a1; padding-bottom: 5px; }
-        .tensao-destaque { font-size: 14px; margin: 10px 0 15px 0; color: #d32f2f; font-weight: bold; }
+        h3 { font-size: 14px; color: #333; margin-top: 20px; margin-bottom: 5px; border-bottom: 1px solid #eee; padding-bottom: 3px; }
         
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+        /* ESTILO DA LINHA DE TENSÃO REPOSICIONADA */
+        .tensao-destaque { font-size: 14px; margin: 15px 0 5px 0; color: #d32f2f; font-weight: bold; text-align: left; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 13px; margin-bottom: 15px; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: middle; }
         th { background-color: #f2f2f2; font-weight: bold; }
         .borne { font-family: monospace; background: #333; color: #fff; padding: 2px 6px; border-radius: 3px; font-weight: bold; white-space: nowrap; }
         
+        /* CAIXA DE IMAGEM DA TK10 */
+        .caixa-imagem { text-align: center; margin: 15px 0 25px 0; background: #fafafa; padding: 10px; border-radius: 6px; border: 1px solid #ddd; }
+        .caixa-imagem img { width: 100%; max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
+        .legenda-imagem { font-size: 11px; color: #666; margin-top: 6px; font-style: italic; }
+
         .btn-voltar { display: inline-block; margin-top: 20px; padding: 10px 15px; background: #666; color: white; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: bold; }
         .btn-voltar:active { background: #333; }
-        .footer { text-align: center; margin-top: 30px; font-size: 11px; color: #777; }
+        .footer { text-align: center; margin-top: 30px; font-size: 11px; color: #777; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>Thyssen — TK10</h1>
-    <div class="tensao-destaque">TENSÃO DO CIRCUITO: 120V AC</div>
     
+    <!-- FOTO REAL DA MANOBRA TK10 NO TOPO -->
+    <div class="caixa-imagem">
+        <img src="tk10-placa.jpg" alt="Placa Thyssen TK10" onerror="this.style.display='none'; document.getElementById('lbl-tk10').innerText='Fotografia pendente de carregamento...';">
+        <div id="lbl-tk10" class="legenda-imagem">Painel Físico: Referência para medições e diagnóstico no quadro TK10</div>
+    </div>
+
+    <!-- TENSÃO COLOCADA NO LOCAL DE PRIORIDADE DE DIAGNÓSTICO -->
+    <div class="tensao-destaque">TENSÃO DO CIRCUITO: 120V AC</div>
+    <h3>Cadeia de Bornes de Segurança</h3>
     <table>
         <thead>
-            <tr><th>Circuito / Componente</th><th>SEC – Placa de seguranças</th></tr>
+            <tr><th>Circuito / Componente</th><th>Régua e Bornes de Medição</th></tr>
         </thead>
         <tbody>
-            <tr><td>Stop de Poço e Roda Tensora</td><td>Borne <span class="borne">SV1.1</span> a <span class="borne">SV1.2</span></td></tr>
-            <tr><td>Stop Auxiliar</td><td>Borne <span class="borne">SC1.2</span> a <span class="borne">SC1.3</span></td></tr>
-            <tr><td>Stop Revisão, Contacto Paraquedas e Fins de Curso</td><td>Borne <span class="borne">SC1.3</span> a <span class="borne">SC1.5</span></td></tr>
-            <tr><td>Contacto "Normal" da Botoneira de Rappel</td><td>Borne <span class="borne">SC1.5</span> a Borne <span class="borne">SM1.1</span></td></tr>
-            <tr><td>Limitador de Velocidade</td><td>Borne <span class="borne">SM1.1</span> a <span class="borne">SM1.2</span></td></tr>
-            <tr><td>Contactos de Encosto de Portas (Pré-fecho)</td><td>Borne <span class="borne">SV1.3</span> a <span class="borne">SV1.4</span></td></tr>
-            <tr><td>Encravamento das Portas de Cabine</td><td>Borne <span class="borne">SC1.6</span> a <span class="borne">SC1.7</span></td></tr>
-            <tr><td>Encravamento das Portas Exteriores (Trincos)</td><td>Borne <span class="borne">SV1.5</span> a <span class="borne">SV1.6</span></td></tr>
+            <tr><td>Stop de Poço e Roda Tensora</td><td>Régua <span class="borne">SV1 / 1</span> a <span class="borne">SV1 / 2</span></td></tr>
+            <tr><td>Stop Auxiliar</td><td>Régua <span class="borne">SC1 / 2</span> a <span class="borne">SC1 / 3</span></td></tr>
+            <tr><td>Stop Revisão, Contacto Paraquedas e Fins de Curso</td><td>Régua <span class="borne">SC1 / 3</span> a <span class="borne">SC1 / 5</span></td></tr>
+            <tr><td>Contacto "Normal" da Botoneira de Rappel</td><td>Régua <span class="borne">SC1 / 5</span> a Régua <span class="borne">SM1 / 1</span></td></tr>
+            <tr><td>Limitador de Velocidade</td><td>Régua <span class="borne">SM1 / 1</span> a <span class="borne">SM1 / 2</span></td></tr>
+            <tr><td>Contactos de Encosto de Portas (Pré-fecho)</td><td>Régua <span class="borne">SV1 / 3</span> a <span class="borne">SV1 / 4</span></td></tr>
+            <tr><td>Encravamento das Portas de Cabine</td><td>Régua <span class="borne">SC1 / 6</span> a <span class="borne">SC1 / 7</span></td></tr>
+            <tr><td>Encravamento das Portas Exteriores (Trincos)</td><td>Régua <span class="borne">SV1 / 5</span> a <span class="borne">SV1 / 6</span></td></tr>
         </tbody>
     </table>
 
     <a href="index.html" class="btn-voltar">⬅️ Voltar ao Menu</a>
 
     <div class="footer">
-        Guia de Campo Exclusivo • TK10 Completa
+        © Nelson 15035248 • Guia de Campo Exclusivo
     </div>
 </div>
 

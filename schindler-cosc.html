@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schindler CO-SC — Bornes de Segurança</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #f4f6f9; 
+            color: #333; 
+            margin: 0; 
+            padding: 15px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='160' height='100'%3E%3Ctext x='20' y='50' fill='rgba(0,0,0,0.03)' font-size='11' font-family='Arial' font-weight='bold' transform='rotate(-25 80 50)'%3ENelson 15035248%3C/text%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+        .container { max-width: 600px; background: rgba(255, 255, 255, 0.96); padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: auto; }
+        .header-block { text-align: center; margin-bottom: 20px; }
+        h1 { color: #d32f2f; font-size: 22px; margin-bottom: 5px; }
+        .subtitle { font-size: 13px; color: #666; margin-top: 0; margin-bottom: 15px; font-weight: bold; }
+        .btn-back { display: inline-block; padding: 8px 16px; background: #0d47a1; color: white; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: bold; margin-bottom: 20px; }
+        .tech-table { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; font-size: 14px; text-align: left; }
+        .tech-table th { background: #eef2f7; color: #0d47a1; padding: 12px 10px; font-weight: bold; border-bottom: 2px solid #ccc; }
+        .tech-table td { padding: 12px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+        .tech-table tr:nth-child(even) { background: #fafafa; }
+        .borne-badge { background: #222; color: #fff; padding: 3px 6px; border-radius: 3px; font-family: monospace; font-weight: bold; font-size: 13px; }
+        .notes-section { background: #fff8e1; border-left: 4px solid #ffb300; padding: 12px; margin-top: 20px; border-radius: 0 4px 4px 0; font-size: 13px; color: #555; }
+        .notes-section h3 { margin: 0 0 5px 0; font-size: 14px; color: #b78103; }
+        .footer { text-align: center; margin-top: 30px; font-size: 11px; color: #777; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-block">
+        <a href="index.html" class="btn-back">⬅ Voltar ao Menu</a>
+        <h1>Schindler — CO-SC (Scalable)</h1>
+        <div class="subtitle">Mapeamento da Cadeia de Segurança Unificada</div>
+    </div>
+
+    <table class="tech-table">
+        <thead>
+            <tr>
+                <th style="width: 25%;">Ficha / Pino</th>
+                <th style="width: 35%;">Circuito de Segurança</th>
+                <th style="width: 40%;">Sinal de Monitorização</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="borne-badge">KSS.1</span></td>
+                <td>Alimentação Principal</td>
+                <td>Origem da linha de segurança (Tensão de Controlo).</td>
+            </tr>
+            <tr>
+                <td><span class="borne-badge">KSS.2</span></td>
+                <td>Contactos do Poço / Fossa</td>
+                <td>Stop de emergência inferior e interruptores de polia.</td>
+            </tr>
+            <tr>
+                <td><span class="borne-badge">KSS.3</span></td>
+                <td>Contactos de Cabina / Telhado</td>
+                <td>Stop superior, paraquedas e operador móvel.</td>
+            </tr>
+            <tr>
+                <td><span class="borne-badge">KSS.4</span></td>
+                <td>Trincos de Patamar (Série)</td>
+                <td>Confirmação do encravamento mecânico das exteriores.</td>
+            </tr>
+            <tr>
+                <td><span class="borne-badge">KSS.5</span></td>
+                <td>Contacto de Porta de Cabina</td>
+                <td>Validação elétrica do fecho da porta interna.</td>
+            </tr>
+            <tr>
+                <td><span class="borne-badge">KSS.6</span></td>
+                <td>Retorno Geral ao Módulo</td>
+                <td>Fecho total da cadeia para autorização de marcha.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="notes-section">
+        <h3>💡 Notas de Diagnóstico Rápido (CO-SC):</h3>
+        • Monitorize o estado das séries diretamente pelos LEDs indicadores na placa principal.<br>
+        • Erros comuns de leitura nesta manobra muitas vezes derivam de quebras de comunicação nos nós periféricos do barramento serial.<br>
+        • Realize sempre os testes de dupla segurança em modo de inspeção local.
+    </div>
+
+    <div class="footer">
+        © Nelson 15035248 • Base de dados móvel privada
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThyssenKrupp CMC4 — Circuitos de Segurança</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #f4f6f9; 
+            color: #333; 
+            margin: 0; 
+            padding: 15px; 
+            /* MARCA DE ÁGUA DEFENSIVA REGISTADA */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='160' height='100'%3E%3Ctext x='20' y='50' fill='rgba(0,0,0,0.03)' font-size='11' font-family='Arial' font-weight='bold' transform='rotate(-25 80 50)'%3ENelson 15035248%3C/text%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+        .container { max-width: 600px; background: rgba(255, 255, 255, 0.96); padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: auto; }
+        h1 { color: #0d47a1; font-size: 18px; margin-bottom: 5px; border-bottom: 2px solid #0d47a1; padding-bottom: 5px; }
+        h3 { font-size: 14px; color: #333; margin-top: 20px; margin-bottom: 5px; border-bottom: 1px solid #eee; padding-bottom: 3px; }
+        
+        .tensao-destaque { font-size: 14px; margin: 15px 0 5px 0; color: #d32f2f; font-weight: bold; text-align: left; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 13px; margin-bottom: 15px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: middle; }
+        th { background-color: #f2f2f2; font-weight: bold; }
+        .borne { font-family: monospace; background: #333; color: #fff; padding: 2px 6px; border-radius: 3px; font-weight: bold; white-space: nowrap; }
+        
+        .caixa-imagem { text-align: center; margin: 15px 0 25px 0; background: #fafafa; padding: 10px; border-radius: 6px; border: 1px solid #ddd; }
+        .caixa-imagem img { width: 100%; max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
+        .legenda-imagem { font-size: 11px; color: #666; margin-top: 6px; font-style: italic; }
+
+        .btn-voltar { display: inline-block; margin-top: 20px; padding: 10px 15px; background: #666; color: white; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: bold; text-align: center; }
+        .btn-voltar:active { background: #333; }
+        .footer { text-align: center; margin-top: 30px; font-size: 11px; color: #777; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ThyssenKrupp — CMC4</h1>
+    
+    <!-- Caixa da imagem do esquema técnico -->
+    <div class="caixa-imagem">
+        <img src="cmc4-esquema.jpg" alt="Esquema UBA-CMC4" onerror="this.style.display='none'; document.getElementById('lbl-cmc4').innerText='Fotografia do esquema técnico pendente de upload...';">
+        <div id="lbl-cmc4" class="legenda-imagem">Referência Técnica: Placa da manobra UBA-CMC4</div>
+    </div>
+
+    <!-- TENSÃO COLOCADA ACIMA DA TABELA DE BORNES -->
+    <div class="tensao-destaque">TENSÃO DO CIRCUITO: 230V AC</div>
+    <h3>Cadeia de Bornes de Segurança (Esquema UBA-CMC4)</h3>
+    <table>
+        <thead>
+            <tr><th>Circuito / Componente</th><th>Conector e Bornes de Medição</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Alimentação Geral / Fusível Entrada</td><td><span class="borne">A3</span> a <span class="borne">CN16.2 (OVH)</span></td></tr>
+            <tr><td>Stop de Máquina</td><td><span class="borne">CN31.1 (A1)</span> a <span class="borne">CN33.1 (A1)</span></td></tr>
+            <tr><td>Stop Botoneira de Poço e Roda Tensora (Cabine/Contrapeso)</td><td><span class="borne">CN33.2 (A2)</span> a <span class="borne">CN16.1 (12V)</span></td></tr>
+            <tr><td>Limitador de Velocidade da Cabine e Contra-peso</td><td><span class="borne">CN26.1 (A3)</span> a <span class="borne">CN26.2 (A4)</span></td></tr>
+            <tr><td>Amortecedores (Cabine e Contra-peso)</td><td><span class="borne">CN26.3 (A5)</span> a <span class="borne">CN31.1 (VF1)</span></td></tr>
+            <tr><td>Seguranças de Cabine (Stop teto, revisão, paraquedas, trincos cabine)</td><td><span class="borne">CN27.1 (A6)</span> a <span class="borne">CN27.2 (A7)</span></td></tr>
+            <tr><td>Contactos de Presença de Piso — Frontal (Fecho de Portas)</td><td><span class="borne">CN31.6 (B1)</span> a <span class="borne">CN31.5 (B2)</span></td></tr>
+            <tr><td>Contactos de Presença de Piso — Traseira (se aplicável)</td><td><span class="borne">CN31.4 (B3)</span> a <span class="borne">CN31.3 (B4)</span></td></tr>
+            <tr><td>Contacto de Porta de Cabina (Frontal / Posterior)</td><td><span class="borne">CN32.2 (C1)</span> a <span class="borne">CN32.1 (C2)</span></td></tr>
+            <tr><td>Contactos de Encravamento Frontal (Trincos)</td><td><span class="borne">CN36.1 (C3)</span> a <span class="borne">CN31.1 (E6)</span></td></tr>
+            <tr><td>Contactos de Encravamento Traseira (Trincos)</td><td><span class="borne">CN35.3 (C5)</span> a <span class="borne">CN25.2 (C4)</span></td></tr>
+        </tbody>
+    </table>
+
+    <!-- BOTÃO DE ATALHO ATIVO -->
+    <a href="index.html" class="btn-voltar">⬅️ Voltar ao Menu</a>
+
+    <div class="footer">
+        © Nelson 15035248 • Guia de Campo Exclusivo
+    </div>
+</div>
+
+</body>
+</html>

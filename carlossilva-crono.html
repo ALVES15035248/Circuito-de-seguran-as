@@ -63,9 +63,9 @@
     <!-- NOTAS TÉCNICAS DE CAMPO -->
     <h3>Notas Técnicas de Campo (Verificações)</h3>
     <div class="bloco-shunts">
+        <p>• <strong>Proteção Geral:</strong> O circuito é alimentado e protegido diretamente pelo fusível F2 de 1 Ampere.</p>
         <p>• <strong>Módulo de Bypass PSP:</strong> O circuito possui secionamento específico para testes rápidos e bypass temporário de portas nas fichas superiores.</p>
-        <p>• <strong>Dispositivo DSG ULZ (UCM):</strong> Caso haja movimento incontrolado da cabine com portas abertas, este módulo integrado bloqueia o circuito final impossibilitando a marcha.</p>
-        <p>• ATENÇÃO: Nunca execute shunts permanentes nas fichas de série B (B21 a B27) sob risco de anular proteções críticas de portas e trincos.</p>
+        <p>• ATENÇÃO: Nunca execute shunts permanentes nas fichas de série B sob risco de anular proteções críticas de portas e trincos.</p>
     </div>
 
     <!-- Alerta de Tensão -->
@@ -82,88 +82,80 @@
             <tr>
                 <td>
                     <span class="bloco-tag tag-alv">Alimentação</span><br>
-                    <strong>Início da Linha de Segurança</strong>
+                    <strong>Início da Linha de Segurança</strong><br>
+                    <small style="color:#666;">Proteção do circuito no fusível F2 (1A)</small>
                 </td>
                 <td>
-                    <div class="borne-container">X6.1 <span class="seta-teste">➔</span> X6.3</div>
+                    <div class="borne-container">Entrada F2 <span class="seta-teste">➔</span> Saída F2</div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <span class="bloco-tag tag-alv">Alimentação</span><br>
-                    <strong>Fim de Curso e Stop de Emergência (Poço)</strong>
+                    <strong>Stop de Emergência - Poço (164)</strong>
                 </td>
                 <td>
-                    <div class="borne-container">X6.3 <span class="seta-teste">➔</span> A6.10</div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span class="bloco-tag tag-sgc">Gerais Caixa</span><br>
-                    <strong>Série Geral de Caixa (SGC)</strong><br>
-                    <small style="color:#666;">Limitador de velocidade e Amortecedor</small>
-                </td>
-                <td>
-                    <div class="borne-container">A6.10 <span class="seta-teste">➔</span> B21.1</div>
+                    <div class="borne-container">A71.1 <span class="seta-teste">➔</span> A71.3</div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <span class="bloco-tag tag-sgc">Gerais Cabine</span><br>
-                    <strong>Série Geral de Cabine (SSEC)</strong><br>
-                    <small style="color:#666;">Paraquedas e Botoneira de Revisão</small>
+                    <strong>Stop da Revisão (104)</strong><br>
+                    <small style="color:#666;">Contacto de paragem na botoneira de teto</small>
                 </td>
                 <td>
-                    <div class="borne-container">B21.1 <span class="seta-teste">➔</span> B22.1</div>
+                    <div class="borne-container">BM2.1 <span class="seta-teste">➔</span> BM2.2</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="bloco-tag tag-sgc">Gerais Cabine</span><br>
+                    <strong>Fins de Curso (134) / Páraquedas (142)</strong><br>
+                    <small style="color:#666;">Seguranças mecânicas de limite e cabine</small>
+                </td>
+                <td>
+                    <div class="borne-container">BM2.2 <span class="seta-teste">➔</span> BM2.3</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="bloco-tag tag-sgc">Gerais Caixa</span><br>
+                    <strong>Amortecedores de Poço (184)</strong><br>
+                    <small style="color:#666;">Contacto de segurança dos amortecedores</small>
+                </td>
+                <td>
+                    <div class="borne-container">BM9.6 <span class="seta-teste">➔</span> BM9.5</div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <span class="bloco-tag tag-prt">Portas / Trincos</span><br>
-                    <strong>Trincos das Portas de Piso (PPF)</strong><br>
-                    <small style="color:#666;">Contacto Inicial de Segurança</small>
+                    <strong>Fecho de Portas (206)</strong><br>
+                    <small style="color:#666;">Contacto de presença das portas de piso</small>
                 </td>
                 <td>
-                    <div class="borne-container">B22.1 <span class="seta-teste">➔</span> B23.2</div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span class="bloco-tag tag-prt">Portas / Trincos</span><br>
-                    <strong>Fecho das Portas de Piso (PFC)</strong><br>
-                    <small style="color:#666;">Contacto Secundário de Presença</small>
-                </td>
-                <td>
-                    <div class="borne-container">B23.2 <span class="seta-teste">➔</span> B24.2</div>
+                    <div class="borne-container">BM9.5 <span class="seta-teste">➔</span> BM9.4</div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <span class="bloco-tag tag-prt">Portas / Trincos</span><br>
-                    <strong>Fecho da Porta de Cabine (EPC)</strong><br>
-                    <small style="color:#666;">Contacto do Operador de Porta</small>
+                    <strong>Encravamento das Portas de Piso (226)</strong><br>
+                    <small style="color:#666;">Contactos de trincos mecânicos</small>
                 </td>
                 <td>
-                    <div class="borne-container">B24.2 <span class="seta-teste">➔</span> B25.2</div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span class="bloco-tag tag-prt">Portas / Trincos</span><br>
-                    <strong>Encravamento e Trincos de Cabine (EPE)</strong>
-                </td>
-                <td>
-                    <div class="borne-container">B25.2 <span class="seta-teste">➔</span> B26.2</div>
+                    <div class="borne-container">BM9.3 <span class="seta-teste">➔</span> BM9.2</div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <span class="bloco-tag tag-prt">Portas / Trincos</span><br>
-                    <strong>Ponto Final da Linha (Validação Geral)</strong><br>
-                    <small style="color:#666;">Autorização final de marcha</small>
+                    <strong>Encravamento das Portas de Cabine (236)</strong><br>
+                    <small style="color:#666;">Contacto de fecho da porta automática de cabine</small>
                 </td>
                 <td>
-                    <div class="borne-container">B26.2 <span class="seta-teste">➔</span> B27.2</div>
+                    <div class="borne-container">BM2.6 <span class="seta-teste">➔</span> BM2.7</div>
                 </td>
             </tr>
         </tbody>

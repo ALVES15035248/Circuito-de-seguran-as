@@ -35,7 +35,7 @@
         .tabela-leds { width: 100%; border-collapse: collapse; background: #fdfdfd; margin-top: 10px; }
         .tabela-leds th { background-color: #eef2f7; color: #0d47a1; }
         .led-indicator { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #4caf50; box-shadow: 0 0 6px #4caf50; margin-right: 8px; vertical-align: middle; }
-        .led-name { font-weight: bold; font-family: monospace; font-size: 14px; }
+        .led-name { font-weight: bold; font-family: monospace; font-size: 13px; }
         .nota-rodape { font-size: 11px; color: #777; font-style: italic; margin-top: 5px; display: block; }
 
         /* Bloco de Notas Técnicas de Shunts */
@@ -58,38 +58,46 @@
         <div class="legenda-imagem">Painel Físico: Referência de diagnóstico Aliseu Ítala</div>
     </div>
 
-    <!-- TABELA DIDÁTICA DE LEDS ATUALIZADA COM OS BORNES PRECISOS -->
+    <!-- TABELA DIDÁTICA DE LEDS ATUALIZADA CONFORME ESQUEMA TÉCNICO -->
     <h3>Sinalização de LEDs Diagnóstico (Placa Ítala)</h3>
     <table class="tabela-leds">
         <thead>
             <tr>
-                <th style="width: 25%;">LED</th>
-                <th>Circuito Correspondente / Condição de Ativação</th>
+                <th style="width: 30%;">Canal / LED</th>
+                <th>Circuito Correspondente / Estado de Monitorização</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><span class="led-indicator"></span><span class="led-name">SEG</span></td>
-                <td><strong>Série Geral de Poço e Caixa</strong> (Monitorizado no borne <strong>2B</strong> ou <strong>3</strong>). Acende após o fecho de todos os contactos de fins de curso, paraquedas, limitador, roda tensora e stop do poço.</td>
+                <td><span class="led-indicator"></span><span class="led-name">PONTO 1</span></td>
+                <td><strong>Controlo da Linha de Segurança — Ponto 1</strong>. Monitorização do estágio inicial da cadeia de emergências.</td>
             </tr>
             <tr>
-                <td><span class="led-indicator"></span><span class="led-name">MAN</span></td>
-                <td><strong>Stop de Revisão e Emergência</strong> (Monitorizado no borne <strong>6</strong>). Confirma a integridade da botoneira de revisão e circuitos de paragem de emergência.</td>
+                <td><span class="led-indicator"></span><span class="led-name">PONTO 2</span></td>
+                <td><strong>Controlo da Linha de Segurança — Ponto 2</strong>. Estado dos circuitos intermédios de proteção mecânica.</td>
             </tr>
             <tr>
-                <td><span class="led-indicator"></span><span class="led-name">PTG</span></td>
-                <td><strong>Série de Portas Completa</strong> (Monitorizado no borne <strong>9</strong>). Garante a continuidade do fecho das portas de piso, encravamento da cabine e trincos antes da partida.</td>
+                <td><span class="led-indicator"></span><span class="led-name">PONTO 3</span></td>
+                <td><strong>Controlo da Linha de Segurança — Ponto 3</strong>. Validação da continuidade após as paragens do poço.</td>
+            </tr>
+            <tr>
+                <td><span class="led-indicator"></span><span class="led-name">PONTO 4</span></td>
+                <td><strong>Controlo da Linha de Segurança — Ponto 4</strong>. Monitorização pós-circuito de revisão e emergências manuais.</td>
+            </tr>
+            <tr>
+                <td><span class="led-indicator"></span><span class="led-name">PONTO 5</span></td>
+                <td><strong>Controlo da Linha de Segurança — Ponto 5</strong>. Ponto final da série geral; validação total antes da autorização de manobra.</td>
             </tr>
         </tbody>
     </table>
-    <span class="nota-rodape">* Nota: Verifique sempre as tensões de referência nos bornes caso o LED correspondente permaneça apagado.</span>
+    <span class="nota-rodape">* Nota: O painel possui ainda monitorização para os estados dos Interrutores 1, 2 e 3 e sensores térmicos.</span>
 
-    <!-- NOTAS DE SHUNT ADAPTADAS -->
+    <!-- NOTAS DE SHUNT CORRIGIDAS -->
     <h3>Notas Técnicas de Campo (Shunts / Pontes)</h3>
     <div class="bloco-shunts">
         <p>• Fazer SHUNT temporário apenas para diagnóstico entre os bornes de teste respetivos.</p>
         <p>• ATENÇÃO: Nunca deixar shunts permanentes nos circuitos de encravamento (6-7, 7-8 ou 8-9) em modo normal.</p>
-        <p>• No caso de ausência de botoneira de emergência externa, validar a continuidade direta entre os bornes 3 e 6.</p>
+        <p>• No caso de ausência de botoneira de emergência externa, validar a continuidade direta entre os bornes 5A e 6.</p>
     </div>
 
     <!-- Alerta de Tensão Colado Acima dos Bornes -->
@@ -103,8 +111,8 @@
             <tr><td>Fins de curso superior/inferior; Páraquedas; Alongamento de cabos</td><td><span class="borne">1</span> a <span class="borne">2</span></td></tr>
             <tr><td>Limitador de velocidade (LV)</td><td><span class="borne">2</span> a <span class="borne">2A</span></td></tr>
             <tr><td>Roda tensora</td><td><span class="borne">2A</span> a <span class="borne">2B</span></td></tr>
-            <tr><td>Stop de poço</td><td><span class="borne">2B</span> a <span class="borne">3</span></td></tr>
-            <tr><td>Stop de revisão / Botoneira de emergência</td><td><span class="borne">3</span> a <span class="borne">6</span></td></tr>
+            <tr><td>Stop de poço</td><td><span class="borne">2B</span> a <span class="borne">5A</span></td></tr>
+            <tr><td>Stop de revisão / Botoneira de emergência</td><td><span class="borne">5A</span> a <span class="borne">6</span></td></tr>
             <tr><td>Fecho das portas de piso (Encosto)</td><td><span class="borne">6</span> a <span class="borne">7</span></td></tr>
             <tr><td>Encravamento das portas de cabine; Stop de cabine</td><td><span class="borne">7</span> a <span class="borne">8</span></td></tr>
             <tr><td>Encravamento das portas de piso (Trincos)</td><td><span class="borne">8</span> a <span class="borne">9</span></td></tr>

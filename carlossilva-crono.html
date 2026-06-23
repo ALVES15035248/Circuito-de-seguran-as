@@ -21,15 +21,24 @@
         
         .tensao-destaque { font-size: 14px; margin: 15px 0 5px 0; color: #d32f2f; font-weight: bold; text-align: left; }
         
+        /* TABELA ULTRA INTUITIVA */
         table { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 13px; margin-bottom: 15px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: middle; }
+        th, td { border: 1px solid #ddd; padding: 10px 8px; text-align: left; vertical-align: middle; }
         th { background-color: #f2f2f2; font-weight: bold; }
-        .borne { font-family: monospace; background: #333; color: #fff; padding: 2px 6px; border-radius: 3px; font-weight: bold; white-space: nowrap; }
         
+        /* BADGES EXCLUSIVAS DE SÉRIE */
+        .borne-container { display: flex; align-items: center; justify-content: center; font-family: monospace; font-size: 13px; font-weight: bold; background: #222; color: #fff; padding: 4px 8px; border-radius: 4px; white-space: nowrap; }
+        .seta-teste { margin: 0 6px; color: #ffeb3b; font-size: 12px; }
+        
+        .bloco-tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: bold; text-transform: uppercase; margin-bottom: 4px; }
+        .tag-alv { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+        .tag-sgc { background: #fff3e0; color: #ef6c00; border: 1px solid #ffe0b2; }
+        .tag-prt { background: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; }
+
         /* CAIXA DE IMAGEM */
         .caixa-imagem { text-align: center; margin: 15px 0 25px 0; background: #fafafa; padding: 10px; border-radius: 6px; border: 1px solid #ddd; }
         .caixa-imagem img { width: 100%; max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
-        .legenda-imagem { font-size: 11px; color: #666; margin-top: 6px; font-style: italic; }
+        .legenda-imagem { font-size: 11px; color: #666; margin-top: 6px; font-style: italic; line-height: 1.4; }
 
         /* Bloco de Notas Técnicas de Shunts */
         .bloco-shunts { background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px; margin-top: 15px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; text-align: left; }
@@ -48,15 +57,15 @@
     <!-- Caixa da Foto Física -->
     <div class="caixa-imagem">
         <img src="carlossilva-placa.jpg" alt="Placa Carlos Silva Crono">
-        <div class="legenda-imagem">Painel Físico: Referência de diagnóstico Carlos Silva Crono</div>
+        <div class="legenda-imagem"><strong>Esquema de Campo:</strong> Circuito integrado de monitorização de seguranças (Módulo ESF) e controlo de trincos/portas com fichas modulares rápidas (Série B).</div>
     </div>
 
     <!-- NOTAS TÉCNICAS DE CAMPO -->
-    <h3>Notas Técnicas de Campo (Shunts / Pontes)</h3>
+    <h3>Notas Técnicas de Campo (Verificações)</h3>
     <div class="bloco-shunts">
-        <p>• Valide os LEDs de estado da série de segurança diretamente na placa principal.</p>
-        <p>• Garanta que o circuito secundário do transformador mantém a estabilidade nos 48V AC.</p>
-        <p>• ATENÇÃO: Desfaça qualquer shunt de diagnóstico antes de colocar o elevador em serviço normal.</p>
+        <p>• <strong>Módulo de Bypass PSP:</strong> O circuito possui secionamento específico para testes rápidos e bypass temporário de portas nas fichas superiores.</p>
+        <p>• <strong>Dispositivo DSG ULZ (UCM):</strong> Caso haja movimento incontrolado da cabine com portas abertas, este módulo integrado bloqueia o circuito final impossibilitando a marcha.</p>
+        <p>• ATENÇÃO: Nunca execute shunts permanentes nas fichas de série B (B21 a B27) sob risco de anular proteções críticas de portas e trincos.</p>
     </div>
 
     <!-- Alerta de Tensão -->
@@ -65,16 +74,96 @@
     <table id="tabelaBornes">
         <thead>
             <tr>
-                <th style="width: 8%;">#</th>
-                <th>Circuito / Componente Ativo</th>
-                <th style="width: 35%;">Bornes de Medição</th>
+                <th style="width: 60%;">Componente Técnico / Circuito</th>
+                <th style="width: 40%; text-align: center;">Pontas do Multímetro</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Aguardando a listagem de circuitos para preenchimento exato -->
             <tr>
-                <td colspan="3" style="text-align: center; color: #666; font-style: italic; padding: 15px;">
-                    Aguardando a numeração sequencial dos bornes de campo...
+                <td>
+                    <span class="bloco-tag tag-alv">Alimentação</span><br>
+                    <strong>Início da Linha de Segurança</strong>
+                </td>
+                <td>
+                    <div class="borne-container">X6.1 <span class="seta-teste">➔</span> X6.3</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="bloco-tag tag-alv">Alimentação</span><br>
+                    <strong>Fim de Curso e Stop de Emergência (Poço)</strong>
+                </td>
+                <td>
+                    <div class="borne-container">X6.3 <span class="seta-teste">➔</span> A6.10</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="bloco-tag tag-sgc">Gerais Caixa</span><br>
+                    <strong>Série Geral de Caixa (SGC)</strong><br>
+                    <small style="color:#666;">Limitador de velocidade e Amortecedor</small>
+                </td>
+                <td>
+                    <div class="borne-container">A6.10 <span class="seta-teste">➔</span> B21.1</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="bloco-tag tag-sgc">Gerais Cabine</span><br>
+                    <strong>Série Geral de Cabine (SSEC)</strong><br>
+                    <small style="color:#666;">Paraquedas e Botoneira de Revisão</small>
+                </td>
+                <td>
+                    <div class="borne-container">B21.1 <span class="seta-teste">➔</span> B22.1</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="bloco-tag tag-prt">Portas / Trincos</span><br>
+                    <strong>Trincos das Portas de Piso (PPF)</strong><br>
+                    <small style="color:#666;">Contacto Inicial de Segurança</small>
+                </td>
+                <td>
+                    <div class="borne-container">B22.1 <span class="seta-teste">➔</span> B23.2</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="bloco-tag tag-prt">Portas / Trincos</span><br>
+                    <strong>Fecho das Portas de Piso (PFC)</strong><br>
+                    <small style="color:#666;">Contacto Secundário de Presença</small>
+                </td>
+                <td>
+                    <div class="borne-container">B23.2 <span class="seta-teste">➔</span> B24.2</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="bloco-tag tag-prt">Portas / Trincos</span><br>
+                    <strong>Fecho da Porta de Cabine (EPC)</strong><br>
+                    <small style="color:#666;">Contacto do Operador de Porta</small>
+                </td>
+                <td>
+                    <div class="borne-container">B24.2 <span class="seta-teste">➔</span> B25.2</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="bloco-tag tag-prt">Portas / Trincos</span><br>
+                    <strong>Encravamento e Trincos de Cabine (EPE)</strong>
+                </td>
+                <td>
+                    <div class="borne-container">B25.2 <span class="seta-teste">➔</span> B26.2</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="bloco-tag tag-prt">Portas / Trincos</span><br>
+                    <strong>Ponto Final da Linha (Validação Geral)</strong><br>
+                    <small style="color:#666;">Autorização final de marcha</small>
+                </td>
+                <td>
+                    <div class="borne-container">B26.2 <span class="seta-teste">➔</span> B27.2</div>
                 </td>
             </tr>
         </tbody>

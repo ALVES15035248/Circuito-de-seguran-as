@@ -21,7 +21,7 @@
         
         .tensao-destaque { font-size: 14px; margin: 15px 0 5px 0; color: #d32f2f; font-weight: bold; text-align: left; }
         
-        /* TABELA ULTRA INTUITIVA - PADRÃO SÉRIE K */
+        /* TABELA ULTRA INTUITIVA */
         table { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 13px; margin-bottom: 15px; }
         th, td { border: 1px solid #ddd; padding: 10px 8px; text-align: left; vertical-align: middle; }
         th { background-color: #f2f2f2; font-weight: bold; }
@@ -35,7 +35,13 @@
         .tag-sgc { background: #fff3e0; color: #ef6c00; border: 1px solid #ffe0b2; }
         .tag-prt { background: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; }
 
-        /* CAIXA DE IMAGEM DA HIDRA TRP72 */
+        /* ESTILO PARA A TABELA DIDÁTICA DE LEDS */
+        .tabela-leds { width: 100%; border-collapse: collapse; background: #fdfdfd; margin-top: 10px; }
+        .tabela-leds th { background-color: #eef2f7; color: #0d47a1; }
+        .led-indicator { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #4caf50; box-shadow: 0 0 6px #4caf50; margin-right: 8px; vertical-align: middle; }
+        .led-name { font-weight: bold; font-family: monospace; font-size: 14px; }
+
+        /* CAIXA DE IMAGEM */
         .caixa-imagem { text-align: center; margin: 15px 0 25px 0; background: #fafafa; padding: 10px; border-radius: 6px; border: 1px solid #ddd; }
         .caixa-imagem img { width: 100%; max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
         .legenda-imagem { font-size: 11px; color: #666; margin-top: 6px; font-style: italic; line-height: 1.4; }
@@ -57,19 +63,48 @@
     <!-- Caixa da Foto Física Mapeada -->
     <div class="caixa-imagem">
         <img src="carlossilva-hidra.jpg" alt="Painel Carlos Silva Hidra TRP72" onerror="this.style.display='none'; document.getElementById('lbl-hidra').innerText='Fotografia física pendente...';">
-        <div id="lbl-hidra" class="legenda-imagem"><strong>Painel Físico:</strong> Quadro de comando hidráulico Carlos Silva Hidra TRP72 com blocos de monitorização de relés de segurança.</div>
+        <div id="lbl-hidra" class="legenda-imagem"><strong>Painel Físico:</strong> Quadro de comando hidráulico Carlos Silva Hidra TRP72 com os barramentos das fichas modulares Série B.</div>
     </div>
+
+    <!-- TABELA DE SINALIZAÇÃO DE LEDS BASEADA NO ESQUEMA -->
+    <h3>Sinalização de LEDs Diagnóstico (Monitorização Ótica)</h3>
+    <table class="tabela-leds">
+        <thead>
+            <tr>
+                <th style="width: 25%;">LED</th>
+                <th>Ponto de Leitura / Condição de Ativação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="led-indicator"></span><span class="led-name">SSG</span></td>
+                <td><strong>Série de Segurança Geral</strong> (Monitorizado após o borne <strong>B7.2</strong>). Valida o Relé Falta de Fase, Paraquedas, Revisão, Limite Superior e Stop de Cabine.</td>
+            </tr>
+            <tr>
+                <td><span class="led-indicator"></span><span class="led-name">PP</span></td>
+                <td><strong>Portas de Piso (Presença)</strong> (Monitorizado após o borne <strong>B7.4</strong>). Acende quando todas as portas exteriores estão fisicamente encostadas.</td>
+            </tr>
+            <tr>
+                <td><span class="led-indicator"></span><span class="led-name">EPE</span></td>
+                <td><strong>Encravamento de Portas Exteriores</strong> (Monitorizado após o borne <strong>B7.5</strong>). Confirma o trancamento mecânico completo de todas as portas de piso.</td>
+            </tr>
+            <tr>
+                <td><span class="led-indicator"></span><span class="led-name">EPC</span></td>
+                <td><strong>Encravamento de Portas de Cabine</strong> (Monitorizado após o borne <strong>B8.6</strong>). Ponto final da série completa; autorização total para arranque da manobra.</td>
+            </tr>
+        </tbody>
+    </table>
 
     <!-- NOTAS TÉCNICAS DE CAMPO -->
     <h3>Notas Técnicas de Campo (Verificações)</h3>
     <div class="bloco-shunts">
-        <p>• <strong>Especificidade Hidráulica:</strong> Monitore atentamente os contactos de pressostato, temperatura do óleo e contacto de bloqueio da válvula de descida.</p>
-        <p>• Valide se a tensão da série geral de comando está estabilizada antes de realizar pontes de teste.</p>
-        <p>• ATENÇÃO: Remova por completo qualquer shunt de ensaio temporário antes de liberar o elevador para o público.</p>
+        <p>• <strong>Alimentação Inicial:</strong> Caso o relé RFF atue ou falte uma fase na rede local, a série geral de 48V AC fica cortada logo na origem (11-14).</p>
+        <p>• <strong>Ordem Lógica das Fichas:</strong> Note que o circuito cruza alternadamente entre os barramentos da ficha B7 e B8 conforme o esquema de cabine/caixa.</p>
+        <p>• ATENÇÃO: Nunca execute pontes permanentes nos pinos de trincos (B7.4 a B7.5 ou B8.5 a B8.6) fora de testes controlados.</p>
     </div>
 
     <!-- Alerta de Tensão -->
-    <div class="tensao-destaque">TENSÃO DO CIRCUITO: --V AC</div>
+    <div class="tensao-destaque">TENSÃO DO CIRCUITO: 48V AC</div>
     <h3>Cadeia de Bornes de Segurança</h3>
     <table id="tabelaBornes">
         <thead>
@@ -79,73 +114,57 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Tabela pré-configurada para receber os dados oficiais de campo -->
             <tr>
                 <td>
                     <span class="bloco-tag tag-alv">Alimentação</span><br>
-                    <strong>Início da Cadeia Hidra / Proteção Geral</strong>
+                    <strong>Relé Falta de Fase (RFF)</strong><br>
+                    <small style="color:#666;">Proteção e monitorização da rede trifásica</small>
                 </td>
                 <td>
-                    <div class="borne-container">Borne X <span class="seta-teste">➔</span> Borne Y</div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span class="bloco-tag tag-sgc">Gerais Caixa</span><br>
-                    <strong>Stop de Emergência e Fins de Curso</strong>
-                </td>
-                <td>
-                    <div class="borne-container">Borne X <span class="seta-teste">➔</span> Borne Y</div>
+                    <div class="borne-container">11 <span class="seta-teste">➔</span> 14</div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <span class="bloco-tag tag-sgc">Gerais Cabine</span><br>
-                    <strong>Stop da Revisão e Botoneira de Emergência</strong>
+                    <strong>Páraquedas, Alongamento e Stop Revisão</strong><br>
+                    <small style="color:#666;">Série móvel de proteção mecânica da cabine</small>
                 </td>
                 <td>
-                    <div class="borne-container">Borne X <span class="seta-teste">➔</span> Borne Y</div>
+                    <div class="borne-container">B8.1 <span class="seta-teste">➔</span> B8.2</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="bloco-tag tag-sgc">Gerais Caixa</span><br>
+                    <strong>Fim de Curso Superior e Stop de Cabine</strong><br>
+                    <small style="color:#666;">Corte de fim de curso (FC-1) e paragens manuais</small>
+                </td>
+                <td>
+                    <div class="borne-container">B7.1 <span class="seta-teste">➔</span> B7.2</div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <span class="bloco-tag tag-prt">Portas / Trincos</span><br>
-                    <strong>Série de Encosto de Portas de Piso</strong>
+                    <strong>Fecho de Portas de Piso (PPE)</strong><br>
+                    <small style="color:#666;">Contacto de encosto e presença exterior</small>
                 </td>
                 <td>
-                    <div class="borne-container">Borne X <span class="seta-teste">➔</span> Borne Y</div>
+                    <div class="borne-container">B7.3 <span class="seta-teste">➔</span> B8.3</div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <span class="bloco-tag tag-prt">Portas / Trincos</span><br>
-                    <strong>Encravamento das Portas de Piso (Trincos)</strong>
+                    <strong>Fecho das Portas de Cabine (PPC)</strong><br>
+                    <small style="color:#666;">Contacto do operador automático da cabine</small>
                 </td>
                 <td>
-                    <div class="borne-container">Borne X <span class="seta-teste">➔</span> Borne Y</div>
+                    <div class="borne-container">B8.3 <span class="seta-teste">➔</span> B8.4</div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <span class="bloco-tag tag-prt">Portas / Trincos</span><br>
-                    <strong>Encravamento das Portas de Cabine</strong><br>
-                    <small style="color:#666;">Ponto terminal da série de segurança</small>
-                </td>
-                <td>
-                    <div class="borne-container">Borne X <span class="seta-teste">➔</span> Borne Y</div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div class="nav-section" style="text-align: center;">
-        <a href="index.html" class="btn-voltar">⬅️ Voltar ao Menu</a>
-    </div>
-
-    <div class="footer">
-        © Nelson 15035248 • Guia de Campo Exclusivo
-    </div>
-</div>
-
-</body>
-</html>
+                    <strong>Encravamento das Portas de Piso</strong><br>
